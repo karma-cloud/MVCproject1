@@ -32,4 +32,10 @@ public class Dish {
     public void setPrice(double price) {
         this.price = price;
     }
+
+    @Override
+    public String toString() {
+        return "Dish{ " + "name: " + name  + ", category: " + category + ", price: " + price + '}';
+    }
+
 }
