@@ -5,6 +5,7 @@ import org.json.JSONObject;
 import java.io.*;
 
 public class Serialize {
+    static File file = new File("file.json");
 
     public static void serialize(Dish dish) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
@@ -12,11 +13,11 @@ public class Serialize {
         //System.out.println("result:" + result);
         //JSONObject json = new JSONObject(result);
         //System.out.println("Dish: " + json.getString("name"));
-        objectMapper.writerWithDefaultPrettyPrinter().writeValue(new File("file.json"), dish);
+        objectMapper.writerWithDefaultPrettyPrinter().writeValue(file, dish);
     }
     public static Dish deserialize() throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        Dish dish = mapper.readValue(new File("file.json"), Dish.class);
+        Dish dish = mapper.readValue(file, Dish.class);
         System.out.println(dish);
         return dish;
     }
